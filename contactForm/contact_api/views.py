@@ -13,6 +13,6 @@ class SendEmailAPI(APIView):
             subject = serializer.validated_data['subject']
             message = serializer.validated_data['message']
             recipient_email = serializer.validated_data['recipient_email']
-            send_mail(subject, message, 'sender@example.com', [recipient_email], fail_silently=False)
+            send_mail(subject, message, 'activation.django@gmail.com', [recipient_email], fail_silently=False)
             return Response({"message": "Email sent successfully."})
         return Response(serializer.errors, status=400)
