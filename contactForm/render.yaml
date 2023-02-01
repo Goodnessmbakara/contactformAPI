@@ -1,18 +1,18 @@
 databases:
-  - name: mysite
-    databaseName: mysite
-    user: mysite
+  - name: contactForm
+    databaseName: contactForm
+    user: contactForm
 
 services:
   - type: web
-    name: mysite
+    name: contactForm
     env: python
     buildCommand: "./build.sh"
-    startCommand: "gunicorn mysite.wsgi:application"
+    startCommand: "gunicorn contactForm.wsgi:application"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: mysite
+          name: contactForm
           property: connectionString
       - key: SECRET_KEY
         generateValue: true
